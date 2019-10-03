@@ -30,15 +30,35 @@ for s in turtle_shapes:
 	vt.fillcolor(new_color)
 	vt.goto( -tloc, 350)
 	vt.setheading(270)
-  
+	
 	tloc += 50
 
 # TODO: move turtles across and down screen, stopping for collisions
-"""
+
 steps = 0
 while steps < 50:
 	steps = steps + 1
-"""
+
+	for h_turtle in horiz_turtles:
+		for v_turtle in vert_turtles:
+
+			h_turtle.forward(10)
+			v_turtle.forward(10)
+
+			x1 = h_turtle.xcor()
+			x2 = v_turtle.xcor()
+
+			y1 = h_turtle.ycor()
+			y2 = v_turtle.ycor()
+
+			if abs(x1 - x2) < 20 and abs(y1 - y2) < 20:
+				h_turtle.fillcolor("grey")
+				v_turtle.fillcolor("grey")
+
+				horiz_turtles.remove(h_turtle)
+				vert_turtles.remove(v_turtle)
+
+
 
 wn = trtl.Screen()
 wn.mainloop()
